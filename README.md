@@ -1,0 +1,2 @@
+# QuickProjects
+Small Python Projects

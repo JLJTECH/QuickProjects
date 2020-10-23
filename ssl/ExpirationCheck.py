@@ -1,15 +1,17 @@
 #!/user/bin/env python3
 '''
-Meta writer test - SSL expiration check using OpenSSl from Bash
+SSL expiration check using OpenSSl in Bash
 '''
 import os
 
+#Take user input URL
 site = input("Enter a site url: ")
 
 def writer():
-    val = ("echo Name " + site)
-    t = ("echo | openssl s_client -servername " + site + " -connect " + site + ":443 2>/dev/null | openssl x509 -noout -dates")
-    stream = os.system(str(t))
+    #Craft the CLI command to run the SSL expiration check
+    comm = ("echo | openssl s_client -servername " + site + " -connect " + site + ":443 2>/dev/null | openssl x509 -noout -dates")
+    #Run command
+    stream = os.system(str(comm))
     return stream 
-    
+
 writer()
